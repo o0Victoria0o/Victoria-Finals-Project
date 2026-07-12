@@ -29,16 +29,20 @@ document.addEventListener("DOMContentLoaded", function() {
     if (joinForm) {
         joinForm.addEventListener('submit', function(event) {
             const nameInput = document.getElementById('name').value.trim();
-            const positionSelect = document.getElementById('position').value;
+            const positionSelect = document.getElementById('position');
+            const positionText = positionSelect.options[positionSelect.selectedIndex].text; 
     
             if (nameInput.length < 3) {
                 event.preventDefault();
                 alert("Error: Ryosuke's data terminal requires a valid name (at least 3 characters).");
             } 
-            else if (!positionSelect) {
+            else if (!positionSelect.value) {
                 event.preventDefault();
                 alert("Error: Please select a valid expedition position.");
             } 
+            else {
+                alert(`Submission Confirmed!\n\nDriver: ${nameInput}\nPosition: ${positionText}\n\nData transmitted to Project D. Good luck on the touge.`);
+            }
         });
     }
 
