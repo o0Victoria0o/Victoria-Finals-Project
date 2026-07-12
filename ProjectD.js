@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Error: Please select a valid expedition position.");
             } 
             else {
+                event.preventDefault();
                 alert(`Submission Confirmed!\n\nDriver: ${nameInput}\nPosition: ${positionText}\n\nData transmitted to Project D. Good luck on the touge.`);
+                window.location.reload();
             }
         });
     }
